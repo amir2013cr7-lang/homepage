@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html lang="en" id="html-root"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#b71029",
+              "inverse-surface": "#010d29",
+              "primary-container": "#ff7576",
+              "on-error": "#ffefec",
+              "on-tertiary": "#fff1da",
+              "inverse-on-surface": "#909cbf",
+              "secondary-container": "#ffc885",
+              "primary-fixed": "#ff7576",
+              "tertiary-fixed-dim": "#eabe55",
+              "surface-variant": "#d1dcff",
+              "error-dim": "#b92902",
+              "tertiary-fixed": "#f9cc61",
+              "on-error-container": "#520c00",
+              "outline-variant": "#a0add0",
+              "surface-container-highest": "#d1dcff",
+              "secondary-fixed-dim": "#ffb554",
+              "on-tertiary-fixed": "#443100",
+              "on-primary": "#ffefee",
+              "outline": "#6a7697",
+              "primary-fixed-dim": "#ff595f",
+              "surface-bright": "#f6f6ff",
+              "on-secondary-container": "#663f00",
+              "tertiary-container": "#f9cc61",
+              "on-primary-fixed-variant": "#60000f",
+              "on-secondary": "#fff0e3",
+              "on-tertiary-container": "#5b4400",
+              "surface-dim": "#c4d4ff",
+              "on-surface-variant": "#4f5b7a",
+              "surface-container-low": "#edf0ff",
+              "on-secondary-fixed-variant": "#734700",
+              "inverse-primary": "#ff525a",
+              "on-tertiary-fixed-variant": "#674d00",
+              "surface-container-high": "#d9e2ff",
+              "secondary-fixed": "#ffc885",
+              "on-surface": "#212e4b",
+              "error-container": "#f95630",
+              "primary-dim": "#a30021",
+              "secondary": "#815100",
+              "tertiary": "#745700",
+              "background": "#f6f6ff",
+              "surface": "#f6f6ff",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#212e4b",
+              "tertiary-dim": "#664c00",
+              "on-primary-container": "#4e000a",
+              "surface-container": "#e1e8ff",
+              "error": "#b02500",
+              "secondary-dim": "#714600",
+              "surface-tint": "#b71029",
+              "on-secondary-fixed": "#4c2e00",
+              "on-primary-fixed": "#000000"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .kinetic-gradient {
+        background: linear-gradient(135deg, #ff7576 0%, #b71029 100%);
+      }
+  .glass-nav {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .nav-chip {
+    white-space: nowrap;
+    border-radius: 999px;
+    padding: .6rem 1.1rem;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 700;
+    font-size: .8rem;
+    letter-spacing: .02em;
+    transition: all .2s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .nav-chip:hover {
+    transform: translateY(-2px);
+  }
+  .mobile-menu {
+    display: none;
+  }
+  .mobile-menu.active {
+    display: block;
+  }
+</style>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-[#212e4b]/80 backdrop-blur-md shadow-xl shadow-on-surface/5">
+<div class="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
+
+<!-- Left Section: Mobile Hamburger + Logo -->
+<div class="flex items-center gap-2">
+<!-- Mobile Hamburger Menu (Visible only on Mobile) -->
+<button onclick="toggleMobileMenu()" class="md:hidden text-[#212e4b] dark:text-[#f6f6ff] p-2">
+<span class="material-symbols-outlined text-4xl">menu</span>
+</button>
+<div class="text-2xl font-black italic text-primary font-headline tracking-tight">RS Burger</div>
+</div>
+
+<!-- Desktop Nav (Hidden on Mobile) -->
+<div class="hidden md:flex flex-wrap items-center gap-3">
+<button onclick="window.location.href='code.html'" class="nav-chip bg-primary text-on-primary shadow-lg shadow-primary/20">Home</button>
+<button onclick="window.location.href='code2.html'" class="nav-chip bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest">Menu</button>
+<button onclick="window.location.href='code3.html'" class="nav-chip bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest">Locations</button>
+</div>
+
+<!-- Right Section: Theme Toggle -->
+<div class="flex items-center gap-4">
+<button onclick="toggleTheme()" class="scale-95 active:opacity-80 transition-transform text-[#212e4b] dark:text-[#f6f6ff]">
+<span id="theme-icon" class="material-symbols-outlined text-2xl">dark_mode</span>
+</button>
+</div>
+</div>
+
+<!-- Mobile Menu Dropdown -->
+<div id="mobileMenu" class="mobile-menu md:hidden fixed top-20 left-0 right-0 bg-surface dark:bg-[#212e4b] border-b border-surface-variant dark:border-[#212e4b] shadow-lg z-40">
+<div class="flex flex-col gap-3 p-4 max-w-7xl mx-auto w-full">
+<button onclick="window.location.href='code.html'; toggleMobileMenu();" class="nav-chip bg-primary text-on-primary shadow-lg shadow-primary/20 w-full text-center">Home</button>
+<button onclick="window.location.href='code2.html'; toggleMobileMenu();" class="nav-chip bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest w-full text-center">Menu</button>
+<button onclick="window.location.href='code3.html'; toggleMobileMenu();" class="nav-chip bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest w-full text-center">Locations</button>
+</div>
+</div>
+</nav>
+<body class="bg-surface dark:bg-[#212e4b] text-on-surface dark:text-[#f6f6ff]">
+<main class="pt-24">
+<!-- Hero Section: Kinetic Kitchen -->
+<section class="relative min-h-[870px] flex items-center overflow-hidden px-6 lg:px-12">
+<div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="z-10 relative">
+<span class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label font-semibold text-sm mb-6 uppercase tracking-widest">Restaurant · Qmatiyeh, Lebanon</span>
+<h1 class="text-on-surface dark:text-white font-headline font-extrabold text-6xl lg:text-8xl leading-[1.05] -tracking-[0.03em] mb-8">
+                        Best Burgers In <span class="text-primary italic">Qmatiyeh.</span>
+</h1>
+<p class="text-on-surface-variant text-xl lg:text-2xl max-w-lg mb-10 leading-relaxed">
+                        RS Burger brings you juicy, flame-grilled burgers made with fresh ingredients. Located in Qmatiyeh, Lebanon — bold flavor, every single time.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button onclick="window.location.href='code2.html'" class="bg-primary text-on-primary font-headline font-bold py-5 px-10 rounded-full kinetic-gradient hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20">
+                            Explore Menu
+                        </button>
+<a href="https://maps.app.goo.gl/6URqPoAm45pHeDEe8" target="_blank" rel="noopener noreferrer" class="bg-surface-container-high text-on-surface font-headline font-bold py-5 px-10 rounded-full hover:bg-surface-container-highest transition-all text-decoration-none block">
+                            Find Us
+                        </a>
+</div>
+<p class="mt-4 text-on-surface-variant text-sm">DM us on WhatsApp: 71 729 203</p>
+</div>
+<div class="relative lg:h-full flex items-center justify-center">
+<!-- Overlapping Food Element -->
+<div class="relative z-20 transform translate-x-12 translate-y-8 lg:translate-x-20 rotate-6 hover:rotate-0 transition-transform duration-700">
+<img alt="Signature Sizzle Burger" class="w-full max-w-md lg:max-w-lg object-contain drop-shadow-[0_35px_35px_rgba(33,46,75,0.3)]" data-alt="close-up of a gourmet double cheeseburger with melting cheddar, fresh lettuce, and glossy brioche bun on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiJo2cL5gpJPwNOHUtnYV3AzDRIrd7hPDkJO2otgTQ89ruXSiqDTaRnmCTcX9bwvQKzII0GuxPaurd-PgrYucrySccw43kQZSUHxS6OxqN-vo1_j7FiVR_qZuAaxojww_St8CjkvbnESxcaeEI1FkL9JmthyYfHkf1hRQi1q1jAZOr_iTLAgkHZb3A4rtWaqG1q9yRGCRC3OKhEnCFywAASHpJd1Fns6OjtTLBB_E8LnRbpsTRPqGF1RMpQ3h9eCds5CkTJuzRVYW0"/>
+</div>
+<!-- Background Accent -->
+<div class="absolute inset-0 bg-primary-container/20 rounded-full blur-3xl -z-10 scale-125"></div>
+</div>
+</div>
+</section>
+<!-- Signature Categories: Bento Style -->
+<section class="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
+<div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="text-on-surface dark:text-white font-headline font-extrabold text-4xl lg:text-5xl -tracking-tight">OUR MENU</h2>
+<div class="h-1.5 w-24 bg-primary mt-4"></div>
+</div>
+<p class="text-on-surface-variant font-medium text-lg max-w-md">Handcrafted burgers, crispy sides, and ice-cold drinks — made fresh for every order.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Large Feature Card -->
+<div class="md:col-span-2 relative group overflow-hidden rounded-lg bg-surface-container-low h-[450px]">
+<div class="absolute inset-0 p-10 z-20 flex flex-col justify-end">
+<h3 class="text-white font-headline font-black text-5xl mb-4">SIGNATURE BURGERS</h3>
+<p class="text-white/80 text-lg mb-6 max-w-md">Hand-pressed beef, fire-kissed and seasoned with RS Burger's special sauce.</p>
+<button onclick="window.location.href='code2.html'" class="bg-white dark:bg-surface text-primary w-fit px-8 py-3 rounded-full font-bold">View Menu</button>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/90 to-transparent z-10"></div>
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="dramatic macro shot of beef patties sizzling on an open fire grill with sparks and smoke" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATlRuLl3G58Qx3nCE4tUIwNM-7ykYLSBElLZpUGbfku2ySizo3ndhG1ikN3-8_qjesRuHB2s2mxeQ0wFhg_MJd-y97SSwjsFqqP9ZMsbs3tsMqWl6k6vPl_8rnSwpXzA0F1R3OKCTmVga8xJ6UjIhktolEG6eJr0_My2D1zgJNnFYfStsMIjPPNq4wqD2lR0gQNOBVe_HVRYTlpCEFc6z35ZRXkazULO-r-2pMiYPtwxK6pr742X7kH1L7FPZespNVCjOar7dw_B_3"/>
+</div>
+<!-- Secondary Cards -->
+<div class="space-y-8">
+<div class="relative group overflow-hidden rounded-lg bg-secondary-container h-[209px]">
+<div class="p-8 relative z-20">
+<h4 class="text-on-secondary-container font-headline font-extrabold text-2xl">SIDES &amp; SNAPS</h4>
+<span class="material-symbols-outlined text-on-secondary-container text-4xl mt-4" data-icon="restaurant">restaurant</span>
+</div>
+<img class="absolute bottom-0 right-0 w-32 h-32 object-contain translate-x-4 translate-y-4 group-hover:scale-125 transition-transform" data-alt="crispy golden french fries in a red cardboard container against a clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoAWjTXwQXTXIvUqiqLFcJ2p2jJkM0EPaPvf1bDPNy1Kv2ORidyLouvukwzeAlEL887aAgXjTIg8Hk-wVDHcY9_ZP0G8lholfyn8_EkzeRuZQnTLa-nkR9UWd7C_dnex4gjKq2hY486V-xV2b169FZ2ZAYabNfRoXq-qkFASwwlE0WO2am_8d25duXZpqOtTm_ivIZImbMHm8nFys8X-7MWJHJk8yiHb1yLdQ9jjhJC9m7mB9_D0o71Ko9rw3FwBUCSckz_WuZp2um"/>
+</div>
+<div class="relative group overflow-hidden rounded-lg bg-surface-container-highest h-[209px]">
+<div class="p-8 relative z-20">
+<h4 class="text-on-surface font-headline font-extrabold text-2xl">ICE COLD FLOW</h4>
+<span class="material-symbols-outlined text-primary text-4xl mt-4" data-icon="local_drink">local_drink</span>
+</div>
+<img class="absolute bottom-0 right-0 w-32 h-32 object-contain translate-x-4 translate-y-4 group-hover:scale-125 transition-transform" data-alt="a refreshing soda with ice cubes and condensation on the glass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi7-DT3A4BaOR8hogDD1X6NC0CGypn6U7NDRbi2qsnp0wQW4qD5yXkem0I2S2z4mBuyp5cKTDa_Vt_1uO-QPdG8ig3YxxJ3oyATOSyR-H83x97wC3-WwiI77MHG2SsFgK4tHx_TeSWOrYXIv2kPNcCdH74jCjX70qF--EbcqqTUxKmR5-zPTqXVayajbZkALj9EUPDARrqDd4Kl95EyYCgoz9TiYuifRbwBFrwwQ88uCNkdu_YcH9Hsel6QAMPVS0BLeR0ev7W6EPW"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Store Locator: Kinetic Layout -->
+<section class="py-24 px-6 lg:px-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1">
+<div class="rounded-lg overflow-hidden h-[500px] shadow-2xl relative">
+<img class="w-full h-full object-cover" data-alt="modern stylized city map showing restaurant locations with red pins on a cool blue tone background" data-location="New York" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9M-ccihGLIMJkYCnIjttjA2PYAM1ByrZFpf46JK7VS71nduHliFPGa0ixHypl5A7KtUqt91xCaZ6yZeKx3LWdEfOQV0-li38ZYofARQsBWg-D5fqefzqnpfMjGRGv8SnvZZw2fw1zW0FfBA6tM_oHjrJYB3toGw9EMR8Drab4JNQoebRwJkvTrhEyDdYmE1-VJ-16obPPFRWNJO0WTdbOGB9CY--FL6xESGvhFXCNVJiz2DLAhIC0M90USdtGmDHyNsZVWFAMNSPJ"/>
+<div class="absolute bottom-6 left-6 right-6 bg-surface/90 backdrop-blur-md p-6 rounded-lg shadow-lg">
+<p class="font-headline font-bold text-primary mb-2">RS Burger — Qmatiyeh, Lebanon</p>
+<p class="text-on-surface-variant text-sm">RH2H+V9 Qmatiyeh • 📞 71 729 203</p>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<h2 class="text-on-surface dark:text-white font-headline font-extrabold text-5xl mb-8">FIND US</h2>
+<p class="text-on-surface-variant text-xl mb-10 leading-relaxed">We're located in the heart of Qmatiyeh, Lebanon. Come visit us and taste what everyone's talking about.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-6 p-6 rounded-lg hover:bg-surface-container-low transition-colors group">
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary" data-icon="near_me">near_me</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-xl">📍 Qmatiyeh, Lebanon</h4>
+<p class="text-on-surface-variant">RH2H+V9 Qmatiyeh</p>
+</div>
+</div>
+<div class="flex items-center gap-6 p-6 rounded-lg hover:bg-surface-container-low transition-colors group">
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary" data-icon="call">call</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-xl">📞 71 729 203</h4>
+<p class="text-on-surface-variant">Call us to place your order or for inquiries.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Customer Reviews Section -->
+<section class="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
+<div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="text-on-surface dark:text-white font-headline font-extrabold text-4xl lg:text-5xl -tracking-tight">CUSTOMER REVIEWS</h2>
+<div class="h-1.5 w-24 bg-primary mt-4"></div>
+</div>
+<p class="text-on-surface-variant font-medium text-lg max-w-md">⭐ 4.5 / 5 &nbsp;·&nbsp; 128 reviews</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Review 1 -->
+<div class="bg-surface-container-low rounded-lg p-8 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline font-bold">K</div>
+<div>
+<p class="font-headline font-bold text-on-surface">Karim H.</p>
+<p class="text-yellow-500 text-sm">⭐⭐⭐⭐⭐</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed">"Honestly one of the best burgers I've had in the area. The meat is juicy and the buns are super fresh. Definitely coming back!"</p>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface-container-low rounded-lg p-8 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline font-bold">L</div>
+<div>
+<p class="font-headline font-bold text-on-surface">Lina M.</p>
+<p class="text-yellow-500 text-sm">⭐⭐⭐⭐☆</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed">"Great taste and good portion sizes. Fries were crispy and well-seasoned. Just wish the waiting time was a bit shorter."</p>
+</div>
+<!-- Review 3 -->
+<div class="bg-surface-container-low rounded-lg p-8 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline font-bold">J</div>
+<div>
+<p class="font-headline font-bold text-on-surface">Jad R.</p>
+<p class="text-yellow-500 text-sm">⭐⭐⭐⭐⭐</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed">"Loved the vibe and the food quality. Their special sauce is 🔥. Highly recommend trying their signature burger."</p>
+</div>
+<!-- Review 4 -->
+<div class="bg-surface-container-low rounded-lg p-8 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline font-bold">M</div>
+<div>
+<p class="font-headline font-bold text-on-surface">Maya S.</p>
+<p class="text-yellow-500 text-sm">⭐⭐⭐⭐☆</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed">"Nice place for a quick bite with friends. Prices are reasonable and the staff is friendly."</p>
+</div>
+<!-- Review 5 -->
+<div class="bg-surface-container-low rounded-lg p-8 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline font-bold">T</div>
+<div>
+<p class="font-headline font-bold text-on-surface">Tarek N.</p>
+<p class="text-yellow-500 text-sm">⭐⭐⭐⭐☆</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed">"Solid burger spot in Qmatiyeh. Not fancy, but delivers where it matters — flavor and freshness."</p>
+</div>
+</div>
+</section>
+
+</main>
+<!-- Footer -->
+<footer class="bg-[#edf0ff] dark:bg-[#212e4b] w-full rounded-t-[2rem] mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full max-w-7xl mx-auto">
+<div class="mb-12 md:mb-0 text-center md:text-left">
+<div class="text-xl font-black text-[#212e4b] dark:text-[#f6f6ff] mb-4">RS Burger</div>
+<p class="text-[#212e4b] dark:text-[#f6f6ff] opacity-60 font-['Be_Vietnam_Pro'] text-sm tracking-wide max-w-xs">
+                    Serving the best burgers in Qmatiyeh, Lebanon. 📍 RH2H+V9 Qmatiyeh · 📞 71 729 203
+                </p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 mb-12 md:mb-0">
+<a class="text-[#212e4b] dark:text-[#f6f6ff] opacity-60 font-['Be_Vietnam_Pro'] text-sm tracking-wide hover:opacity-100 hover:text-[#b71029] transition-opacity duration-200" href="#">Privacy Policy</a>
+<a class="text-[#212e4b] dark:text-[#f6f6ff] opacity-60 font-['Be_Vietnam_Pro'] text-sm tracking-wide hover:opacity-100 hover:text-[#b71029] transition-opacity duration-200" href="#">Terms of Service</a>
+<a class="text-[#212e4b] dark:text-[#f6f6ff] opacity-60 font-['Be_Vietnam_Pro'] text-sm tracking-wide hover:opacity-100 hover:text-[#b71029] transition-opacity duration-200" href="#">Careers</a>
+<a class="text-[#212e4b] dark:text-[#f6f6ff] opacity-60 font-['Be_Vietnam_Pro'] text-sm tracking-wide hover:opacity-100 hover:text-[#b71029] transition-opacity duration-200" href="#">Contact Us</a>
+</div>
+<div class="text-[#212e4b] dark:text-[#f6f6ff] opacity-60 font-['Be_Vietnam_Pro'] text-sm tracking-wide">
+                © 2024 RS BURGER — QMATIYEH, LEBANON. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+<script>
+    // Check saved theme on page load
+    if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+        if (document.getElementById('theme-icon')) {
+            document.getElementById('theme-icon').textContent = 'light_mode';
+        }
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const icon = document.getElementById('theme-icon');
+
+        if (html.classList.contains('dark')) {
+            // Switch to Light
+            html.classList.remove('dark');
+            icon.textContent = 'dark_mode';
+            localStorage.setItem('theme', 'light');
+        } else {
+            // Switch to Dark
+            html.classList.add('dark');
+            icon.textContent = 'light_mode';
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+</script>
+</body></html>
