@@ -28,6 +28,228 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary":"#b71029","in
 .mobile-menu.active{display:block}
 .no-scrollbar::-webkit-scrollbar{display:none}
 .no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
+
+/* ===== RESPONSIVE IMPROVEMENTS ===== */
+/* Mobile-First Responsive Design */
+
+/* Extra small screens (< 640px) */
+@media (max-width: 639px) {
+  /* Navigation */
+  nav {
+    padding: 0;
+  }
+  nav > div {
+    padding: 0.75rem 1rem !important;
+  }
+  
+  /* Logo sizing */
+  .text-2xl.font-black.italic {
+    font-size: 1.25rem;
+  }
+  
+  /* Hero section */
+  .min-h-\[300px\] {
+    min-height: 280px;
+  }
+  
+  h1 {
+    font-size: 1.875rem;
+    line-height: 1.2;
+  }
+  
+  /* Section headings */
+  h2 {
+    font-size: 1.875rem !important;
+  }
+  
+  /* Paragraph text */
+  p {
+    font-size: 0.95rem;
+  }
+  
+  /* Hero paragraph */
+  .text-inverse-on-surface {
+    font-size: 1rem;
+  }
+  
+  /* Main content padding */
+  main {
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Section cards */
+  .section-card {
+    margin-bottom: 2.5rem;
+    border-radius: 1rem;
+  }
+  
+  .section-banner {
+    height: 150px;
+  }
+  
+  .section-banner-overlay {
+    padding: 1rem 1.25rem;
+  }
+  
+  .section-banner-overlay h2 {
+    font-size: 1.5rem;
+  }
+  
+  .section-banner-overlay p {
+    font-size: 0.7rem;
+  }
+  
+  /* Card content padding */
+  .section-card > div:last-child {
+    padding: 1rem;
+  }
+  
+  /* Item cards */
+  .item-card {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .item-card h3 {
+    font-size: 0.95rem;
+  }
+  
+  /* Price badges */
+  .price-badge, .price-badge-ll {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.7rem;
+  }
+  
+  /* Category navigation chips */
+  .nav-chip {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.7rem;
+  }
+  
+  /* Grid adjustments */
+  .grid {
+    gap: 0.75rem;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 2rem 1.5rem;
+    border-radius: 1.5rem 1.5rem 0 0;
+    gap: 1.5rem;
+  }
+  
+  footer .text-xl {
+    font-size: 1rem;
+  }
+  
+  footer .flex.flex-wrap {
+    gap: 1rem;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  footer a {
+    font-size: 0.8rem;
+  }
+  
+  /* Flex items spacing */
+  .flex.justify-between.items-center.gap-3 {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  /* Images in sections */
+  .section-banner img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Icon sizing */
+  .material-symbols-outlined {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Small screens (640px - 767px) */
+@media (min-width: 640px) and (max-width: 767px) {
+  main {
+    padding-top: 6rem;
+  }
+  
+  .section-banner {
+    height: 180px;
+  }
+  
+  h1 {
+    font-size: 2.25rem;
+  }
+  
+  h2 {
+    font-size: 2rem !important;
+  }
+  
+  .section-card > div:last-child {
+    padding: 1.25rem;
+  }
+  
+  .nav-chip {
+    padding: 0.55rem 0.95rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Medium screens (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  main {
+    max-width: 90%;
+  }
+  
+  nav > div {
+    padding: 1rem 1.5rem;
+  }
+  
+  .section-banner {
+    height: 200px;
+  }
+}
+
+/* Large screens and up (1024px+) */
+@media (min-width: 1024px) {
+  main {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Landscape mode adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+  main {
+    padding-top: 4rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  .section-banner {
+    height: 120px;
+  }
+}
+
+/* Improve touch targets for mobile */
+@media (hover: none) and (pointer: coarse) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .nav-chip {
+    min-height: 40px;
+  }
+}
 </style>
 <script>
 window.toggleTheme = function() {

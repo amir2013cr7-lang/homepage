@@ -107,6 +107,242 @@
   .mobile-menu.active {
     display: block;
   }
+
+  /* ===== RESPONSIVE IMPROVEMENTS FOR HOME PAGE ===== */
+  
+  /* Extra small screens (< 640px) */
+  @media (max-width: 639px) {
+    /* Navigation adjustments */
+    nav > div {
+      padding: 0.75rem 0.5rem;
+    }
+    
+    nav .text-2xl {
+      font-size: 1.125rem;
+    }
+    
+    nav button span {
+      font-size: 1.5rem;
+    }
+    
+    /* Hero section */
+    .min-h-\[870px\] {
+      min-height: auto;
+      padding: 2rem 1rem;
+    }
+    
+    /* Hero heading */
+    main section h1 {
+      font-size: 1.875rem;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    
+    /* Hero paragraph */
+    main section > div > div > p {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Hero buttons container */
+    .flex.flex-wrap.gap-4 {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .flex.flex-wrap.gap-4 > * {
+      width: 100%;
+      padding: 0.875rem 1.5rem !important;
+      font-size: 0.9rem;
+    }
+    
+    /* Hero image container */
+    main section > div:last-child {
+      margin-top: 2rem;
+      justify-content: center;
+    }
+    
+    main section img {
+      max-width: 90%;
+      width: auto;
+    }
+    
+    /* Transform adjustments for mobile */
+    .transform.translate-x-12.translate-y-8 {
+      transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    
+    /* Section padding */
+    section {
+      padding: 2rem 1rem !important;
+    }
+    
+    /* Main content */
+    main {
+      padding-top: 4.5rem !important;
+    }
+    
+    /* Section heading */
+    section h2 {
+      font-size: 1.875rem !important;
+    }
+    
+    section > div > div > h2 {
+      font-size: 1.75rem !important;
+    }
+    
+    /* Section description */
+    section > div > p {
+      font-size: 0.95rem;
+      max-width: 100%;
+    }
+    
+    /* Grid adjustments */
+    .grid.grid-cols-1 {
+      gap: 1rem;
+    }
+    
+    /* Feature card */
+    .md\:col-span-2.relative.group {
+      height: 300px;
+    }
+    
+    .md\:col-span-2 h3 {
+      font-size: 1.75rem;
+    }
+    
+    .md\:col-span-2 p {
+      font-size: 0.85rem;
+    }
+    
+    /* Buttons in cards */
+    .md\:col-span-2 button {
+      font-size: 0.85rem;
+      padding: 0.5rem 1rem;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 2rem 1rem;
+    }
+    
+    footer h2, footer .text-xl {
+      font-size: 1rem;
+    }
+    
+    footer p {
+      font-size: 0.85rem;
+    }
+  }
+  
+  /* Small screens (640px - 767px) */
+  @media (min-width: 640px) and (max-width: 767px) {
+    main section h1 {
+      font-size: 2.25rem;
+      line-height: 1.2;
+    }
+    
+    main section > div > div > p {
+      font-size: 1rem;
+    }
+    
+    .flex.flex-wrap.gap-4 {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    
+    .flex.flex-wrap.gap-4 > * {
+      flex: 1 1 auto;
+      min-width: 150px;
+    }
+    
+    main {
+      padding-top: 5rem !important;
+    }
+    
+    .min-h-\[870px\] {
+      min-height: 600px;
+    }
+    
+    .md\:col-span-2.relative.group {
+      height: 350px;
+    }
+  }
+  
+  /* Medium screens (768px - 1023px) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    nav > div {
+      padding: 1rem 1.5rem;
+    }
+    
+    main {
+      max-width: 90%;
+      padding-top: 5rem !important;
+    }
+    
+    main section h1 {
+      font-size: 3rem;
+    }
+    
+    .md\:col-span-2.relative.group {
+      height: 400px;
+    }
+  }
+  
+  /* Large screens (1024px+) */
+  @media (min-width: 1024px) {
+    main {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    
+    section {
+      padding: 6rem 3rem !important;
+    }
+  }
+  
+  /* Landscape mode adjustments */
+  @media (max-height: 600px) and (orientation: landscape) {
+    .min-h-\[870px\] {
+      min-height: 400px;
+    }
+    
+    main section h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    main section > div > div > p {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    
+    .flex.flex-wrap.gap-4 > * {
+      padding: 0.5rem 1rem !important;
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* Improve touch targets for mobile devices */
+  @media (hover: none) and (pointer: coarse) {
+    button, a {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    nav button {
+      padding: 0.5rem;
+    }
+    
+    nav .material-symbols-outlined {
+      font-size: 1.5rem;
+    }
+    
+    .nav-chip {
+      min-height: 40px;
+      padding: 0.6rem 1rem;
+    }
+  }
 </style>
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-[#212e4b]/80 backdrop-blur-md shadow-xl shadow-on-surface/5">
