@@ -6,20 +6,20 @@ const firebaseConfig = {
   authDomain: "rs-burger.firebaseapp.com",
   databaseURL: "https://rs-burger-default-rtdb.firebaseio.com",
   projectId: "rs-burger",
-  storageBucket: "rs-burger.firebasestorage.app",
+  storageBucket: "rs-burger.firebaseapp.com",
   messagingSenderId: "922015301250",
-  appId: "1:922015301250:web:1dc61c8770098c3e08fe9b",
-  measurementId: "G-GSFTPNH6JL"
+  appId: "1:922015301250:web:1dc61c8770098c3e08fe9b"
 };
 
-// INIT APP
 const app = initializeApp(firebaseConfig);
-
-// INIT DATABASE
 const db = getDatabase(app);
 
-// TEST WRITE
+// FORCE TEST WRITE
 set(ref(db, "menu/test"), {
-  name: "Cheeseburger",
-  price: 5
+  name: "TEST BURGER",
+  price: 10
+}).then(() => {
+  console.log("Data written successfully");
+}).catch((error) => {
+  console.log("Error:", error);
 });
