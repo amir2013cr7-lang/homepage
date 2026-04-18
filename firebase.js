@@ -1,22 +1,25 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDB12Nfer9eRygm8OzdcJVgX9ZXnz3TjJY",
   authDomain: "rs-burger.firebaseapp.com",
+  databaseURL: "https://rs-burger-default-rtdb.firebaseio.com",
   projectId: "rs-burger",
   storageBucket: "rs-burger.firebasestorage.app",
-  databaseURL: "https://rs-burger-default-rtdb.firebaseio.com",
   messagingSenderId: "922015301250",
   appId: "1:922015301250:web:1dc61c8770098c3e08fe9b",
   measurementId: "G-GSFTPNH6JL"
 };
 
-// Initialize Firebase
+// INIT APP
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
+// INIT DATABASE
+const db = getDatabase(app);
+
+// TEST WRITE
+set(ref(db, "menu/test"), {
+  name: "Cheeseburger",
+  price: 5
+});
