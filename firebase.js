@@ -11,6 +11,7 @@ const firebaseConfig = {
   authDomain: "rs-burger.firebaseapp.com",
   projectId: "rs-burger",
   storageBucket: "rs-burger.firebasestorage.app",
+  databaseURL: "https://rs-burger-default-rtdb.firebaseio.com",
   messagingSenderId: "922015301250",
   appId: "1:922015301250:web:1dc61c8770098c3e08fe9b",
   measurementId: "G-GSFTPNH6JL"
