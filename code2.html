@@ -629,7 +629,7 @@ function renderItemCard(item, slug) {
 async function fetchLiveMenu() {
   try {
     const [catRes, itemRes] = await Promise.all([
-      supabaseClient.from('menu').select('*').order('display_order'),
+      supabaseClient.from('categories').select('*').order('display_order'),
       supabaseClient.from('menu_items').select('*, item_variants(*)').eq('is_available', true),
     ]);
 
