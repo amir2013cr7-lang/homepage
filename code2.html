@@ -588,7 +588,7 @@ function renderVariantCard(item) {
 
   const rows = variants.map(v => `
     <div class="flex justify-between items-center">
-      <span class="text-on-surface text-sm">${v.name}</span>
+      <span class="text-on-surface text-sm">${$v.variant_name}</span>
       ${priceHtml(v.price_usd, v.price_ll)}
     </div>`).join('');
 
