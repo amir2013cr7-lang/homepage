@@ -7,6 +7,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Be_Vietnam_Pro:wght@300;400;500&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script id="tailwind-config">
 tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary":"#b71029","inverse-surface":"#010d29","primary-container":"#ff7576","on-error":"#ffefec","on-tertiary":"#fff1da","inverse-on-surface":"#909cbf","secondary-container":"#ffc885","primary-fixed":"#ff7576","tertiary-fixed-dim":"#eabe55","surface-variant":"#d1dcff","error-dim":"#b92902","tertiary-fixed":"#f9cc61","on-error-container":"#520c00","outline-variant":"#a0add0","surface-container-highest":"#d1dcff","secondary-fixed-dim":"#ffb554","on-tertiary-fixed":"#443100","on-primary":"#ffefee","outline":"#6a7697","primary-fixed-dim":"#ff595f","surface-bright":"#f6f6ff","on-secondary-container":"#663f00","tertiary-container":"#f9cc61","on-primary-fixed-variant":"#60000f","on-secondary":"#fff0e3","on-tertiary-container":"#5b4400","surface-dim":"#c4d4ff","on-surface-variant":"#4f5b7a","surface-container-low":"#edf0ff","on-secondary-fixed-variant":"#734700","inverse-primary":"#ff525a","on-tertiary-fixed-variant":"#674d00","surface-container-high":"#d9e2ff","secondary-fixed":"#ffc885","on-surface":"#212e4b","error-container":"#f95630","primary-dim":"#a30021","secondary":"#815100","tertiary":"#745700","background":"#f6f6ff","surface":"#f6f6ff","surface-container-lowest":"#ffffff","on-background":"#212e4b","tertiary-dim":"#664c00","on-primary-container":"#4e000a","surface-container":"#e1e8ff","error":"#b02500","secondary-dim":"#714600","surface-tint":"#b71029","on-secondary-fixed":"#4c2e00","on-primary-fixed":"#000000"},fontFamily:{"headline":["Plus Jakarta Sans"],"body":["Be Vietnam Pro"],"label":["Plus Jakarta Sans"]},borderRadius:{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"}}}}
 </script>
@@ -374,13 +375,7 @@ function toggleMobileMenu() {
       </div>
     </div>
     <div class="p-6 md:p-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="item-card flex justify-between items-center gap-3"><h3 class="font-headline font-bold text-on-surface">Chicken Garlic</h3><span class="price-badge-ll">350,000 L.L</span></div>
-        <div class="item-card flex justify-between items-center gap-3"><h3 class="font-headline font-bold text-on-surface">Cheese Burger</h3><span class="price-badge-ll">350,000 L.L</span></div>
-        <div class="item-card flex justify-between items-center gap-3"><h3 class="font-headline font-bold text-on-surface">Sandwich Fries</h3><span class="price-badge-ll">250,000 L.L</span></div>
-        <div class="item-card flex justify-between items-center gap-3"><h3 class="font-headline font-bold text-on-surface">Chicken Burger</h3><span class="price-badge-ll">350,000 L.L</span></div>
-        <div class="item-card flex justify-between items-center gap-3"><h3 class="font-headline font-bold text-on-surface">Lebanese Burger</h3><span class="price-badge-ll">370,000 L.L</span></div>
-      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="news-items-grid"></div>
     </div>
   </div>
 
@@ -396,18 +391,7 @@ function toggleMobileMenu() {
       </div>
     </div>
     <div class="p-6 md:p-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Francisco</h3><span class="price-badge">$4.50</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Grilled Chicken, Corn, Iceberg, Mozzarella, Pickles, Mayo</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Fajita</h3><span class="price-badge">$5.00</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Grilled Chicken, Mozzarella, Soya Sauce, Fajita Spices, Avocado Pepper Sauce</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Chicken Mushroom</h3><span class="price-badge">$5.00</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Grilled Chicken, Mozzarella, Mushroom, Iceberg, Pickles, Honey Mustard Sauce, Soya Sauce</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Steak Mushroom</h3><span class="price-badge">$7.00</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Philly Steak, Fresh Mushroom, Mozzarella Cheese, Spices, Philly Sauce, Cream Fresh</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Chicken Sub</h3><span class="price-badge">$4.50</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Grilled Chicken, Corn, Rs Mayo Sauce, Mozzarella, Iceberg, Pickles</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Royal</h3><span class="price-badge">$4.10</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Crispy Chicken, Turkey, Cocktail Sauce, Cheddar, Iceberg</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">RS Spicy</h3><span class="price-badge">$4.30</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Grilled Chicken, Corn, Spicy Sauce, Mozzarella</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Boneless</h3><span class="price-badge">$4.90</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Fried Chicken, BBQ, Cheddar, Chips, Iceberg</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Special Wrap</h3><span class="price-badge">$5.50</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Grilled Chicken, Mozzarella Sticks, Turkey, Chips, Iceberg, Honey Mustard Sauce</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Risky Wrap</h3><span class="price-badge">$4.60</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Grilled Chicken, Turkey, Cheddar, Special Sauce, Iceberg</p></div>
-      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="sandwiches-grid"></div>
     </div>
   </div>
 
@@ -423,18 +407,7 @@ function toggleMobileMenu() {
       </div>
     </div>
     <div class="p-6 md:p-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Dynamite</h3><span class="price-badge">$4.90</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Fried Chicken, Cheddar, Dynamite Sauce, Pickles, Chips</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Spicy Buffalo Dip</h3><span class="price-badge">$6.00</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Crispy Buffalo Dipped Chicken, Cheddar, Iceberg, Mozzarella Patty, Pickles</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Barbeque Dip</h3><span class="price-badge">$6.00</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Crispy BBQ Glazed Chicken, Cheddar, Iceberg, Mozzarella Patty, Pickles</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Honey Mustard Dip</h3><span class="price-badge">$6.00</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Crispy Chicken Dipped in Honey Mustard, Cheddar, Iceberg, Mozzarella Patty, Pickles</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Lebanese</h3><span class="price-badge">$4.30</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Crispy Chicken, Coleslaw, Ketchup, Fries</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Godzilla</h3><span class="price-badge">$5.90</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Fried Chicken, Cheddar Patty, Iceberg, Pickles, Chips, BBQ, Cheddar, Avocado Sauce, Honey Mustard Sauce</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Mozzarella</h3><span class="price-badge">$5.40</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Grilled Chicken, Cheddar, Mozzarella Patty, Chips, Honey Mustard Sauce</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Dublex</h3><span class="price-badge">$5.40</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Crispy Chicken, Iceberg, Mozzarella Patty, Cheddar, Chips, BBQ, Spicy Sauce</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Zinger</h3><span class="price-badge">$4.80</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Fried Chicken, Turkey, Cheddar, Iceberg, BBQ, Cocktail Sauce, Spicy Sauce</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Supernova</h3><span class="price-badge">$5.90</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Grilled Chicken, Cheddar, Mozzarella Patty, Sauce Poivre, Onion Rings</p></div>
-      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="chicken-burgers-grid"></div>
     </div>
   </div>
 
@@ -450,18 +423,7 @@ function toggleMobileMenu() {
       </div>
     </div>
     <div class="p-6 md:p-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Emma</h3><span class="price-badge">$5.00</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Grilled Beef, Emmental Cheese, Iceberg, BBQ, Mayo, Onion Rings</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Mozzarella</h3><span class="price-badge">$5.40</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Grilled Beef, Mozzarella Patty, Cocktail Sauce, BBQ, Chips</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">RS Beef</h3><span class="price-badge">$6.50</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Double Grilled Beef, BBQ, Cheddar, Onion Rings, Honey Mustard Sauce, Chips</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Sweet Chilli</h3><span class="price-badge">$4.90</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Grilled Beef, Sweet Chilli, Mayo, Cheddar, Iceberg, Chips</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Double Cheese</h3><span class="price-badge">$5.50</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Double Grilled Beef, BBQ, Mozzarella Cheese, Cocktail Sauce, Cheddar, Iceberg, Pickles</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Boom</h3><span class="price-badge">$4.90</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Grilled Beef, Turkey, Iceberg, Mozzarella, BBQ, Cheddar, Poivre Sauce</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Hunters</h3><span class="price-badge">$5.90</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Grilled Beef, Turkey, Iceberg, Cheddar Patty, Onion Rings, Cocktail Sauce</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Honey Mustard</h3><span class="price-badge">$5.00</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Grilled Beef, Cheddar, Mozzarella Patty, Iceberg, Chips, Honey Mustard Sauce</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Swiss Mushroom</h3><span class="price-badge">$5.90</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Grilled Beef, Swiss Cheese, Fresh Mushroom, Mayo, RS Special, Mushroom Sauce</p></div>
-        <div class="item-card"><div class="flex justify-between items-start gap-3"><h3 class="font-headline font-bold text-on-surface">Double Honey</h3><span class="price-badge">$6.50</span></div><p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Double Grilled Beef, Bacon, Cheddar, Pickles, Honey Mustard Sauce</p></div>
-      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="beef-burgers-grid"></div>
     </div>
   </div>
 
@@ -477,13 +439,7 @@ function toggleMobileMenu() {
       </div>
     </div>
     <div class="p-6 md:p-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="item-card flex justify-between items-center gap-3"><h3 class="font-headline font-bold text-on-surface">Crispy Fries</h3><span class="price-badge">$4.30</span></div>
-        <div class="item-card flex justify-between items-center gap-3"><h3 class="font-headline font-bold text-on-surface">Fries</h3><span class="price-badge">$2.70</span></div>
-        <div class="item-card flex justify-between items-center gap-3"><h3 class="font-headline font-bold text-on-surface">Cheesy Fries</h3><span class="price-badge">$4.30</span></div>
-        <div class="item-card flex justify-between items-center gap-3"><h3 class="font-headline font-bold text-on-surface">Loaded Fries</h3><span class="price-badge">$4.30</span></div>
-        <div class="item-card flex justify-between items-center gap-3"><h3 class="font-headline font-bold text-on-surface">Wedges</h3><span class="price-badge">$3.00</span></div>
-      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="fries-sides-grid"></div>
     </div>
   </div>
 
@@ -499,23 +455,7 @@ function toggleMobileMenu() {
       </div>
     </div>
     <div class="p-6 md:p-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="item-card">
-          <h3 class="font-headline font-bold text-on-surface mb-1">Crispy Chicken</h3>
-          <p class="text-on-surface-variant text-sm mb-3">fries, garlic, pickles, cocktail sauce, coleslaw</p>
-          <div class="flex flex-col gap-2">
-            <div class="flex justify-between items-center"><span class="text-on-surface text-sm">5 Pieces</span><span class="price-badge">$8.00</span></div>
-            <div class="flex justify-between items-center"><span class="text-on-surface text-sm">10 Pieces</span><span class="price-badge">$14.00</span></div>
-          </div>
-        </div>
-        <div class="item-card">
-          <h3 class="font-headline font-bold text-on-surface mb-3">Buffalo Dipped Wings, BBQ Dipped Wings, Honey Mustard Dipped</h3>
-          <div class="flex flex-col gap-2">
-            <div class="flex justify-between items-center"><span class="text-on-surface text-sm">6 Pieces</span><span class="price-badge">$4.50</span></div>
-            <div class="flex justify-between items-center"><span class="text-on-surface text-sm">12 Pieces</span><span class="price-badge">$9.00</span></div>
-          </div>
-        </div>
-      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="meals-grid"></div>
     </div>
   </div>
 
@@ -531,10 +471,7 @@ function toggleMobileMenu() {
       </div>
     </div>
     <div class="p-6 md:p-8">
-      <div class="item-card flex justify-between items-center gap-3">
-        <h3 class="font-headline font-bold text-on-surface">Chicken Alfredo</h3>
-        <span class="price-badge">$8.00</span>
-      </div>
+      <div class="grid grid-cols-1 gap-4" id="pasta-grid"></div>
     </div>
   </div>
 
@@ -550,11 +487,7 @@ function toggleMobileMenu() {
       </div>
     </div>
     <div class="p-6 md:p-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="item-card flex justify-between items-center gap-3"><h3 class="font-headline font-bold text-on-surface">Onion Rings</h3><span class="price-badge">$4.00</span></div>
-        <div class="item-card flex justify-between items-center gap-3"><h3 class="font-headline font-bold text-on-surface">Mozzarella Sticks</h3><span class="price-badge">$4.00</span></div>
-        <div class="item-card flex justify-between items-center gap-3"><h3 class="font-headline font-bold text-on-surface">Jalapeno Bites</h3><span class="price-badge">$4.00</span></div>
-      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="sides-grid"></div>
     </div>
   </div>
 
@@ -570,10 +503,7 @@ function toggleMobileMenu() {
       </div>
     </div>
     <div class="p-6 md:p-8">
-      <div class="item-card flex justify-between items-center gap-3">
-        <h3 class="font-headline font-bold text-on-surface">Pepsi, Miranda, 7Up</h3>
-        <span class="price-badge">$1.10</span>
-      </div>
+      <div class="grid grid-cols-1 gap-4" id="drinks-grid"></div>
     </div>
   </div>
 
@@ -589,12 +519,7 @@ function toggleMobileMenu() {
       </div>
     </div>
     <div class="p-6 md:p-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div class="item-card flex justify-between items-center gap-3"><h3 class="font-headline font-bold text-on-surface">Mozzarella Patty</h3><span class="price-badge">$1.80</span></div>
-        <div class="item-card flex justify-between items-center gap-3"><h3 class="font-headline font-bold text-on-surface">Cheddar Patty</h3><span class="price-badge">$1.80</span></div>
-        <div class="item-card flex justify-between items-center gap-3"><h3 class="font-headline font-bold text-on-surface">Dip Fries</h3><span class="price-badge">$3.00</span></div>
-        <div class="item-card flex justify-between items-center gap-3"><h3 class="font-headline font-bold text-on-surface">Mozzarella Sticks</h3><span class="price-badge">$1.00</span></div>
-      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="extras-grid"></div>
     </div>
   </div>
 
@@ -638,5 +563,110 @@ function toggleMobileMenu() {
         }
     }
 </script>
-<script type="module" src="firebase.js"></script>
+<script>
+// ── SUPABASE INIT ──
+const supabaseClient = window.supabase.createClient(
+  'https://iifnynqlqvygwblwegzl.supabase.co',
+  'sb_publishable_L_xcXdAS9kI9LepMxEhuQw_PxoJiCqM'
+);
+
+// ── GRID LAYOUT PER SLUG ──
+// Determines whether a category uses compact (no-description) cards
+const COMPACT_SLUGS = new Set(['news-items', 'fries-sides', 'sides', 'drinks', 'extras']);
+
+// ── PRICE HTML HELPERS ──
+function priceHtml(price_usd, price_ll) {
+  if (price_usd != null) return `<span class="price-badge">$${Number(price_usd).toFixed(2)}</span>`;
+  if (price_ll  != null) return `<span class="price-badge-ll">${Number(price_ll).toLocaleString()} L.L</span>`;
+  return '';
+}
+
+// ── MEALS VARIANT CARD (nested loop) ──
+function renderVariantCard(item) {
+  const variants = [...(item.item_variants || [])]
+    .sort((a, b) => (a.display_order || 0) - (b.display_order || 0));
+
+  const rows = variants.map(v => `
+    <div class="flex justify-between items-center">
+      <span class="text-on-surface text-sm">${v.name}</span>
+      ${priceHtml(v.price_usd, v.price_ll)}
+    </div>`).join('');
+
+  return `
+    <div class="item-card">
+      <h3 class="font-headline font-bold text-on-surface ${item.description ? 'mb-1' : 'mb-3'}">${item.name}</h3>
+      ${item.description ? `<p class="text-on-surface-variant text-sm mb-3">${item.description}</p>` : ''}
+      <div class="flex flex-col gap-2">${rows}</div>
+    </div>`;
+}
+
+// ── STANDARD ITEM CARD ──
+function renderItemCard(item, slug) {
+  const hasVariants = Array.isArray(item.item_variants) && item.item_variants.length > 0;
+  if (hasVariants) return renderVariantCard(item);
+
+  const price     = priceHtml(item.price_usd, item.price_ll);
+  const isCompact = COMPACT_SLUGS.has(slug) || !item.description;
+
+  if (isCompact) {
+    return `
+      <div class="item-card flex justify-between items-center gap-3">
+        <h3 class="font-headline font-bold text-on-surface">${item.name}</h3>
+        ${price}
+      </div>`;
+  }
+  return `
+    <div class="item-card">
+      <div class="flex justify-between items-start gap-3">
+        <h3 class="font-headline font-bold text-on-surface">${item.name}</h3>
+        ${price}
+      </div>
+      <p class="text-on-surface-variant text-sm mt-2 leading-relaxed">${item.description || ''}</p>
+    </div>`;
+}
+
+// ── FETCH & RENDER ──
+async function fetchLiveMenu() {
+  try {
+    const [catRes, itemRes] = await Promise.all([
+      supabaseClient.from('categories').select('*').order('display_order'),
+      supabaseClient.from('menu_items').select('*, item_variants(*)').eq('is_available', true),
+    ]);
+
+    if (catRes.error)  throw catRes.error;
+    if (itemRes.error) throw itemRes.error;
+
+    const categories = catRes.data  || [];
+    const items      = itemRes.data || [];
+
+    // Group items by category_id for O(n) lookup
+    const byCategory = {};
+    for (const item of items) {
+      (byCategory[item.category_id] ||= []).push(item);
+    }
+
+    for (const cat of categories) {
+      const grid = document.getElementById(`${cat.slug}-grid`);
+      if (!grid) continue;
+
+      const catItems = byCategory[cat.id] || [];
+      if (!catItems.length) {
+        grid.innerHTML = '<p class="text-on-surface-variant text-sm col-span-full py-4 text-center">Coming soon…</p>';
+        continue;
+      }
+
+      grid.innerHTML = catItems
+        .map(item => renderItemCard(item, cat.slug))
+        .join('');
+    }
+  } catch (err) {
+    console.error('Supabase menu error:', err);
+    document.querySelectorAll('[id$="-grid"]').forEach(el => {
+      el.innerHTML = '<p class="text-error text-sm col-span-full py-4 text-center">Failed to load — please refresh.</p>';
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', fetchLiveMenu);
+</script>
 </body></html>
